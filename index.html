@@ -68,6 +68,7 @@ a{color:inherit}
 .appcard.dark{background:var(--ink);border-color:var(--ink);color:#F4F3EF}
 .appcard.dark p{color:#A7ACB8}
 .appcard.dark .tag{background:rgba(255,255,255,.09);color:#D6D3CC}
+.appcard.dark .btn-s{color:#F4F3EF;border-color:rgba(255,255,255,.22)}
 .appcard .mark{flex-shrink:0;border-radius:12px;display:block}
 .appcard h3{font-size:18px;margin-bottom:5px}.appcard p{font-size:13.5px;color:var(--mut);line-height:1.6}
 .tag{display:inline-block;font-size:11px;padding:3px 9px;border-radius:99px;background:var(--paper2);color:var(--mut);margin:0 5px 9px 0;font-weight:500}
@@ -78,9 +79,6 @@ a{color:inherit}
 .step:last-child{border-bottom:0}
 .step .k{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--mut2);padding-top:3px;width:26px;flex-shrink:0}
 .step h4{font-size:14.5px;margin-bottom:3px}.step p{font-size:13.5px;color:var(--mut)}
-.toggle{display:inline-flex;background:var(--paper2);border:1px solid var(--line);border-radius:9px;padding:3px;gap:2px;margin-top:18px}
-.toggle button{border:0;background:transparent;font-family:inherit;font-size:13px;padding:7px 15px;border-radius:7px;cursor:pointer;color:var(--mut);font-weight:500}
-.toggle button.on{background:#fff;color:var(--ink)}
 .price-card{border:1px solid var(--line);border-radius:13px;padding:20px;display:flex;flex-direction:column}
 .price-card.hi{border-color:var(--ink);border-width:1.5px}
 .price-card h3{font-size:15px}.price-card .sub{font-size:12.5px;color:var(--mut2);margin-top:3px}
@@ -205,8 +203,7 @@ details p{font-size:13.5px;color:var(--mut);margin-top:9px;max-width:62ch;line-h
 <div class="page" id="p-products"><section class="sec"><div class="wrap">
 <div class="sec-hd"><span class="kicker">Products</span><h1>Apps we make, and work we take on</h1><p>Two subscription apps and a small number of client engagements per quarter.</p></div>
 <div class="appcard" style="margin-bottom:16px"><svg class="mark" width="52" height="52" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="#fff" stroke="#E3E0D8"/><path d="M7 21h5.5l3-8.5 4.5 16 3.5-9.5H33" fill="none" stroke="#12A150" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-<div><h3>
-Imalive</h3><p>A one-tap daily check-in app. Tap once a day and your chosen circle knows you are fine. Miss a day and Imalive quietly nudges them. Built for people living alone, solo travellers, shift workers, and anyone with a parent who worries.</p>
+<div><h3>Imalive</h3><p>A one-tap daily check-in app. Tap once a day and your chosen circle knows you are fine. Miss a day and Imalive quietly nudges them. Built for people living alone, solo travellers, shift workers, and anyone with a parent who worries.</p>
 <ul class="feat"><li>One-tap check-in with a 3-second undo window</li><li>Up to 5 trusted contacts on the Family plan</li><li>Automatic escalation if you miss two days running</li><li>Streaks, gentle reminders, and a private history timeline</li><li>Offline-first: works with no signal, syncs later</li></ul>
 <div style="margin-top:14px;display:flex;gap:9px;flex-wrap:wrap"><a class="btn btn-p btn-sm" href="#/pricing">Plans from $0</a><a class="btn btn-s btn-sm" href="#/faq">Read the FAQ</a></div></div></div>
 
@@ -224,43 +221,42 @@ Imalive</h3><p>A one-tap daily check-in app. Tap once a day and your chosen circ
 </div></section></div>
 
 <div class="page" id="p-pricing"><section class="sec"><div class="wrap">
-<div class="sec-hd"><span class="kicker">Pricing</span><h1>Simple plans, in US dollars</h1><p>All prices in USD, billed through Stripe. Cancel any time from inside the app. Every paid plan includes a 14-day money-back guarantee.</p></div>
-<div class="toggle" id="cycle"><button class="on" data-c="m">Monthly</button><button data-c="y">Annual &middot; save 2 months</button></div>
+<div class="sec-hd"><span class="kicker">Pricing</span><h1>Simple plans, in US dollars</h1><p>All prices in USD, billed monthly through Stripe. Cancel any time from inside the app. Every paid plan includes a 14-day money-back guarantee.</p></div>
 
-<h3 style="margin:30px 0 13px;font-size:15px">Imalive</h3>
+<h3 style="margin:26px 0 13px;font-size:15px">Imalive</h3>
 <div class="grid g3">
 <div class="price-card"><h3>Free</h3><div class="sub">For one person, one contact</div><div class="amt">$0<small> / month</small></div>
 <ul class="feat"><li>Daily check-in</li><li>1 trusted contact</li><li>7-day history</li><li>Email reminders</li></ul>
-<button class="btn btn-s" data-plan="Imalive Free" data-price="$0">Choose plan</button></div>
-<div class="price-card hi"><h3>Plus</h3><div class="sub">For solo living and travel</div><div class="amt" data-m="$4.99" data-y="$49.90">$4.99<small> / month</small></div>
+<a class="btn btn-s" href="https://imaliveapp.com/#/products">Start free</a></div>
+<div class="price-card hi"><h3>Plus</h3><div class="sub">For solo living and travel</div><div class="amt">$4.99<small> / month</small></div>
 <ul class="feat"><li>Everything in Free</li><li>3 trusted contacts</li><li>Missed-day escalation</li><li>Unlimited history</li><li>Home-screen widget</li></ul>
-<button class="btn btn-p" data-plan="Imalive Plus" data-price="$4.99/mo">Choose plan</button></div>
-<div class="price-card"><h3>Family</h3><div class="sub">For parents and households</div><div class="amt" data-m="$9.99" data-y="$99.90">$9.99<small> / month</small></div>
+<a class="btn btn-p" href="https://buy.stripe.com/fZu8wP8iB3QCe4831F5ZC02">Subscribe — $4.99/mo</a></div>
+<div class="price-card"><h3>Family</h3><div class="sub">For parents and households</div><div class="amt">$9.99<small> / month</small></div>
 <ul class="feat"><li>Everything in Plus</li><li>Up to 5 contacts</li><li>Shared household view</li><li>Two-way check-ins</li><li>Priority support</li></ul>
-<button class="btn btn-s" data-plan="Imalive Family" data-price="$9.99/mo">Choose plan</button></div>
+<a class="btn btn-s" href="https://buy.stripe.com/28EaEXfL33QCaRWeKn5ZC00">Subscribe — $9.99/mo</a></div>
 </div>
 
 <h3 style="margin:34px 0 13px;font-size:15px">Janus</h3>
 <div class="grid g2">
 <div class="price-card"><h3>Free</h3><div class="sub">For trying the method</div><div class="amt">$0<small> / month</small></div>
 <ul class="feat"><li>Up to 10 active decisions</li><li>Basic follow-up reminders</li><li>Markdown export</li></ul>
-<button class="btn btn-s" data-plan="Janus Free" data-price="$0">Choose plan</button></div>
-<div class="price-card hi"><h3>Pro</h3><div class="sub">For people who decide a lot</div><div class="amt" data-m="$6.99" data-y="$69.90">$6.99<small> / month</small></div>
+<a class="btn btn-s" href="https://imaliveapp.com/#/products">Start free</a></div>
+<div class="price-card hi"><h3>Pro</h3><div class="sub">For people who decide a lot</div><div class="amt">$6.99<small> / month</small></div>
 <ul class="feat"><li>Unlimited decisions</li><li>Calibration scoring</li><li>Category patterns</li><li>CSV and Markdown export</li><li>Priority support</li></ul>
-<button class="btn btn-p" data-plan="Janus Pro" data-price="$6.99/mo">Choose plan</button></div>
+<a class="btn btn-p" href="https://buy.stripe.com/6oU3cvcyRaf0bW09q35ZC01">Subscribe — $6.99/mo</a></div>
 </div>
 
 <h3 style="margin:34px 0 13px;font-size:15px">Client services</h3>
 <div class="grid g2">
 <div class="price-card"><h3>Launch audit</h3><div class="sub">One-time, two weeks</div><div class="amt">$2,400<small> one-time</small></div>
 <ul class="feat"><li>340-check release gate</li><li>Performance profile</li><li>Store-compliance review</li><li>Prioritised defect report</li></ul>
-<button class="btn btn-s" data-plan="Launch audit" data-price="$2,400 one-time">Request audit</button></div>
+<a class="btn btn-s" href="#/contact">Request audit</a></div>
 <div class="price-card"><h3>Full build</h3><div class="sub">From 8 to 14 weeks</div><div class="amt">$14,000<small> from, fixed scope</small></div>
 <ul class="feat"><li>Spec to store listing</li><li>Weekly builds</li><li>QA and launch gate included</li><li>90 days post-launch support</li></ul>
-<button class="btn btn-s" data-plan="Full build" data-price="from $14,000">Request quote</button></div>
+<a class="btn btn-s" href="#/contact">Request quote</a></div>
 </div>
 
-<div class="note"><b style="color:var(--ink);font-weight:500">How billing works.</b> Subscription plans renew automatically each month or year until cancelled. Payments are processed securely by Stripe. We accept Visa, Mastercard, American Express, and Apple Pay. Prices exclude applicable New Mexico gross receipts and sales tax, which is calculated at checkout based on your billing address. See our <a href="#/refunds" style="color:var(--green);text-decoration:underline">refund policy</a> for cancellation terms.</div>
+<div class="note"><b style="color:var(--ink);font-weight:500">How billing works.</b> Subscriptions renew automatically each month until cancelled. Payments are processed securely by Stripe. We accept Visa, Mastercard, American Express, and Apple Pay. Prices exclude applicable New Mexico gross receipts and sales tax, which is calculated at checkout based on your billing address. See our <a href="#/refunds" style="color:var(--green);text-decoration:underline">refund policy</a> for cancellation terms.</div>
 </div></section></div>
 
 <div class="page" id="p-about"><section class="sec"><div class="wrap prose">
@@ -309,10 +305,10 @@ Imalive</h3><p>A one-tap daily check-in app. Tap once a day and your chosen circ
 <details open><summary>What is imaliveapp.com?</summary><p>imaliveapp.com is the website of Imalive Labs LLC, an independent app studio based in Albuquerque, New Mexico. We build and test mobile apps, and we publish our own products: the Imalive check-in app and the Janus decision journal.</p></details>
 <details><summary>What does Imalive actually do?</summary><p>You tap one button once a day. Your chosen contacts see that you checked in. If you miss a day, Imalive reminds you; miss two and it escalates to your contacts. It is designed for people living alone, solo travellers, and families keeping an eye on each other.</p></details>
 <details><summary>What is Janus?</summary><p>A decision journal. You record a decision and what you expect to happen. Janus follows up later and asks how it went, then scores how well you predicted it. Over time it shows you where your judgement is strong and where it is not.</p></details>
-<details><summary>How much do the apps cost?</summary><p>Both apps have a free tier. Imalive Plus is $4.99 per month and Imalive Family is $9.99 per month. Janus Pro is $6.99 per month. Annual billing is available at roughly two months free. All prices are in USD.</p></details>
+<details><summary>How much do the apps cost?</summary><p>Both apps have a free tier. Imalive Plus is $4.99 per month and Imalive Family is $9.99 per month. Janus Pro is $6.99 per month. All prices are in USD, billed monthly.</p></details>
 <details><summary>How do I pay, and who processes it?</summary><p>All payments are handled by Stripe. We accept Visa, Mastercard, American Express, and Apple Pay. We never see or store your full card number.</p></details>
 <details><summary>Can I cancel any time?</summary><p>Yes. Cancel from the account screen in the app, or email billing@imaliveapp.com. Cancelling stops the next renewal. You keep access until the end of the period you already paid for.</p></details>
-<details><summary>What is the refund policy?</summary><p>Full refund within 14 days of any charge, no reason needed, and unused annual time is refunded pro rata. Full details are on our <a href="#/refunds" style="color:var(--green);text-decoration:underline">refund policy page</a>.</p></details>
+<details><summary>What is the refund policy?</summary><p>Full refund within 14 days of any charge, no reason needed. Full details are on our <a href="#/refunds" style="color:var(--green);text-decoration:underline">refund policy page</a>.</p></details>
 <details><summary>Do you sell my data?</summary><p>No. We do not sell or rent personal data. We use a small set of processors for hosting, payments, and crash reporting. Details are in the <a href="#/privacy" style="color:var(--green);text-decoration:underline">privacy policy</a>.</p></details>
 <details><summary>Can I export my data?</summary><p>Yes, from both apps, as Markdown and CSV. Ask support if you want a full account export and we will send it within five business days.</p></details>
 <details><summary>Do you build apps for other companies?</summary><p>Yes, on a limited basis. We run one client engagement at a time. A launch audit is $2,400 one-time; full builds start at $14,000. Start with a scoping call through the <a href="#/contact" style="color:var(--green);text-decoration:underline">contact page</a>.</p></details>
@@ -326,7 +322,7 @@ Imalive</h3><p>A one-tap daily check-in app. Tap once a day and your chosen circ
 <h3>1. Who these terms are between</h3><p>These terms form a binding agreement between you and Imalive Labs LLC, a New Mexico limited liability company trading as imaliveapp.com ("we", "us", "our"). They cover your use of the imaliveapp.com website, the Imalive app, the Janus app, and any related services (together, the "services").</p>
 <h3>2. Accepting these terms</h3><p>By creating an account, starting a subscription, or using the services, you agree to these terms. If you do not agree, do not use the services. If you are using the services for a company, you confirm you have authority to bind that company.</p>
 <h3>3. Accounts</h3><p>You must be at least 13 years old to create an account, and at least 18 to purchase a paid plan. You are responsible for keeping your login credentials secure and for all activity under your account. Give us accurate information and keep it current.</p>
-<h3>4. Subscriptions and pricing</h3><p>Paid plans are billed in advance, in US dollars, on a monthly or annual basis. Current prices are listed on our pricing page and may change with at least 30 days notice. Price changes take effect at your next renewal. Subscriptions renew automatically unless cancelled before the renewal date.</p>
+<h3>4. Subscriptions and pricing</h3><p>Paid plans are billed in advance, in US dollars, on a monthly basis. Current prices are listed on our pricing page and may change with at least 30 days notice. Price changes take effect at your next renewal. Subscriptions renew automatically unless cancelled before the renewal date.</p>
 <h3>5. Payment processing</h3><p>Payments are processed by Stripe. By subscribing you authorise us and Stripe to charge your chosen payment method on a recurring basis. Applicable New Mexico gross receipts and sales tax is calculated at checkout based on your billing address. If a charge fails, we may retry it and may suspend access until payment succeeds.</p>
 <h3>6. Cancellation and refunds</h3><p>You may cancel at any time from the account screen in the app or by emailing billing@imaliveapp.com. Cancellation stops future renewals; access continues until the end of the paid period. Refunds are governed by our refund policy, which forms part of these terms.</p>
 <h3>7. Licence to use the apps</h3><p>We grant you a personal, non-exclusive, non-transferable, revocable licence to install and use the apps on devices you control, for your own non-commercial use. Client builds may carry separate licence terms set out in the applicable statement of work.</p>
@@ -343,114 +339,4 @@ Imalive</h3><p>A one-tap daily check-in app. Tap once a day and your chosen circ
 </div></section></div>
 
 <div class="page" id="p-privacy"><section class="sec"><div class="wrap prose">
-<span class="kicker">Legal</span><h1 style="margin-bottom:8px">Privacy policy</h1>
-<div class="meta">Last updated 1 October 2026 &middot; Imalive Labs LLC &middot; imaliveapp.com</div>
-<h3>1. Summary</h3><p>We collect the minimum needed to run the apps. We do not sell your personal data. You can export or delete it at any time. This policy explains what we collect, why, and who we share it with.</p>
-<h3>2. Who we are</h3><p>Imalive Labs LLC, 500 Marquette Ave NW, Suite 600, Albuquerque, NM 87102, United States, is the data controller for the services. Privacy questions go to privacy@imaliveapp.com.</p>
-<h3>3. What we collect</h3>
-<ul><li><b style="color:var(--ink);font-weight:500">Account data:</b> your email address, a hashed password, and your display name.</li><li><b style="color:var(--ink);font-weight:500">App content:</b> your check-ins, the contacts you nominate, your decision entries, notes, and follow-up responses.</li><li><b style="color:var(--ink);font-weight:500">Payment data:</b> handled by Stripe. We receive a customer identifier, plan, and renewal status. We do not store card numbers.</li><li><b style="color:var(--ink);font-weight:500">Device and usage data:</b> app version, operating system, device model, language, and coarse region, used for compatibility and support.</li><li><b style="color:var(--ink);font-weight:500">Diagnostics:</b> crash reports and performance traces, with a device identifier, used to fix defects.</li></ul>
-<p>We do not collect precise location continuously. If you enable it for a feature, you can turn it off at any time.</p>
-<h3>4. Why we use it</h3><ul><li>To provide the service, including syncing your content and sending your check-in notifications.</li><li>To process payments, renewals, and refunds.</li><li>To provide support and answer your messages.</li><li>To keep the service secure and prevent abuse.</li><li>To improve reliability and fix crashes.</li><li>To send service emails, and product emails you can opt out of.</li></ul>
-<h3>5. Legal bases</h3><p>Where GDPR applies, we rely on contract performance for providing the service, legitimate interests for security, diagnostics, and product improvement, legal obligation for tax and accounting records, and consent for optional marketing emails.</p>
-<h3>6. Who we share with</h3><p>We share data only with processors acting on our instructions:</p>
-<ul><li><b style="color:var(--ink);font-weight:500">Stripe</b> for payment processing and subscription management.</li><li><b style="color:var(--ink);font-weight:500">Cloud hosting and database providers</b> for storing your account and app content.</li><li><b style="color:var(--ink);font-weight:500">Email delivery providers</b> for transactional email such as reminders and receipts.</li><li><b style="color:var(--ink);font-weight:500">Crash and performance monitoring providers</b> for diagnostics.</li><li><b style="color:var(--ink);font-weight:500">Apple and Google</b> for app distribution and, where used, in-app purchase reconciliation.</li></ul>
-<p>Your nominated contacts see only what is necessary: whether you checked in, and an escalation notice if you miss days. They do not see your Janus content. We do not sell or rent personal data to anyone.</p>
-<h3>7. International transfers</h3><p>Our processors may store data in the United States and the European Union. Where data leaves the EEA or UK, we rely on the UK and EU Standard Contractual Clauses or an adequacy decision.</p>
-<h3>8. Retention</h3><ul><li>Account and app content: while your account is active, then 30 days after deletion.</li><li>Payment and tax records: 7 years, as required by law.</li><li>Crash diagnostics: up to 90 days.</li><li>Support email: up to 24 months.</li></ul>
-<h3>9. Your rights</h3><p>You may access, correct, export, or delete your data, object to or restrict certain processing, and withdraw consent. Email privacy@imaliveapp.com and we will respond within 30 days. If you are in California, you also have rights under the CCPA/CPRA, including the right to know and the right to delete; we do not sell personal information as defined there. If you are in the EU or UK you may complain to your local supervisory authority.</p>
-<h3>10. Security</h3><p>Data is encrypted in transit with TLS and encrypted at rest. Access to production systems is limited and uses multi-factor authentication. No system is perfectly secure, but we test and patch deliberately.</p>
-<h3>11. Children</h3><p>The services are not directed at children under 13. We do not knowingly collect personal data from them.</p>
-<h3>12. Cookies and the website</h3><p>The website uses only essential cookies and local storage for session and preference handling. There are no third-party advertising cookies on this site.</p>
-<h3>13. Changes</h3><p>We will post any changes here and update the date above. Material changes will be announced in the app or by email.</p>
-<h3>14. Contact</h3><p>privacy@imaliveapp.com, or by post to Imalive Labs LLC, 500 Marquette Ave NW, Suite 600, Albuquerque, NM 87102, United States.</p>
-</div></section></div>
-
-<div class="page" id="p-refunds"><section class="sec"><div class="wrap prose">
-<span class="kicker">Legal</span><h1 style="margin-bottom:8px">Refund and cancellation policy</h1>
-<div class="meta">Last updated 1 October 2026 &middot; Imalive Labs LLC &middot; imaliveapp.com</div>
-<h3>1. The short version</h3><p>Cancel any time. Full refund within 14 days of any charge, no reason needed. Unused annual time refunded pro rata. You never have to argue with us about it.</p>
-<h3>2. Subscriptions</h3>
-<ul><li><b style="color:var(--ink);font-weight:500">Within 14 days of a charge:</b> full refund, no questions asked.</li><li><b style="color:var(--ink);font-weight:500">After 14 days, monthly plans:</b> no partial refund for the current month; access continues to the end of the paid period.</li><li><b style="color:var(--ink);font-weight:500">After 14 days, annual plans:</b> the unused remainder is refunded pro rata by whole months, minus any discount you received for paying annually.</li></ul>
-<h3>3. How to cancel</h3><p>Two ways: open the account screen in the app and tap cancel, or email billing@imaliveapp.com from your account email address. If you email, include your account email and, if you have it, the Stripe receipt number. We confirm cancellation within one business day.</p>
-<h3>4. How to request a refund</h3><p>Email billing@imaliveapp.com with the word "refund" in the subject, your account email, and the date of the charge. We process approved refunds within 3 business days. Your bank may take a further 5 to 10 business days to show the credit.</p>
-<h3>5. Failed charges and duplicates</h3><p>Duplicate charges are always refunded in full. If a renewal fails and you were charged twice in error, we fix it the same day. Failed charges may be retried automatically; you can update your card from the billing portal.</p>
-<h3>6. Free plans</h3><p>The free tiers of Imalive and Janus involve no charge, so there is nothing to refund. Downgrading to free takes effect at the end of the current paid period.</p>
-<h3>7. Client engagements</h3>
-<ul><li><b style="color:var(--ink);font-weight:500">Launch audit ($2,400):</b> cancellable for a full refund up to 48 hours before the start date. Once work has begun, refunds are pro rata by milestone.</li><li><b style="color:var(--ink);font-weight:500">Full builds (from $14,000):</b> governed by the milestone schedule in the statement of work. The initial deposit is refundable less work completed if you cancel before the first milestone is accepted.</li></ul>
-<h3>8. Exceptions</h3><p>Refunds are normally returned to the original payment method through Stripe. If that is impossible, for example because the card has been closed, we will arrange an alternative. Chargebacks are honoured; if you file one we will not also refuse a direct refund.</p>
-<h3>9. Statutory rights</h3><p>Nothing here reduces rights you have under mandatory consumer law in your country. EU and UK consumers have a 14-day right of withdrawal for digital services; by starting to use a paid feature you consent to immediate performance, and if you withdraw within 14 days you are refunded in full.</p>
-<h3>10. Contact</h3><p>billing@imaliveapp.com &middot; Imalive Labs LLC, 500 Marquette Ave NW, Suite 600, Albuquerque, NM 87102, United States.</p>
-</div></section></div>
-
-<footer class="foot"><div class="wrap">
-<div class="foot-grid">
-<div>
-<div class="foot-brand"><svg width="24" height="24" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="#fff"/><path d="M7 21h5.5l3-8.5 4.5 16 3.5-9.5H33" fill="none" stroke="#12A150" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-txt"><span class="i"><b></b>I</span>malive</span></div>
-<p>Imalive Labs LLC, an independent app studio in Albuquerque, New Mexico. Makers of the Imalive and Janus apps.</p>
-<p style="margin-top:10px">500 Marquette Ave NW, Suite 600<br>Albuquerque, NM 87102, USA</p>
-</div>
-<div><h4>Products</h4><a href="#/products">Imalive</a><a href="#/products">Janus</a><a href="#/pricing">Pricing</a><a href="#/faq">FAQ</a></div>
-<div><h4>Company</h4><a href="#/about">About the studio</a><a href="#/contact">Contact</a><a href="mailto:hello@imaliveapp.com">hello@imaliveapp.com</a><a href="mailto:billing@imaliveapp.com">billing@imaliveapp.com</a></div>
-<div><h4>Legal</h4><a href="#/terms">Terms of service</a><a href="#/privacy">Privacy policy</a><a href="#/refunds">Refund policy</a></div>
-</div>
-<div class="foot-bot"><span>&copy; 2026 Imalive Labs LLC. All rights reserved.</span><span>Payments processed securely by Stripe &middot; Prices in USD</span></div>
-</div>
-<div class="vdoot"><a href="#/vault">· · ·</a></div>
-</footer>
-
-<div id="toast"></div>
-</div>
-
-<script>
-(function(){
-var root=document.getElementById('site');
-var pages=['home','products','pricing','about','contact','faq','terms','privacy','refunds'];
-function route(){
-var h=(location.hash||'').replace('#/','')||'home';
-if(pages.indexOf(h)===-1)h='home';
-pages.forEach(function(p){var el=document.getElementById('p-'+p);if(el)el.classList.toggle('on',p===h);});
-root.querySelectorAll('.nav-links a').forEach(function(a){a.classList.toggle('on',a.getAttribute('data-r')===h);});
-window.scrollTo(0,0);
-}
-window.addEventListener('hashchange',route);route();
-var toast=document.getElementById('toast'),tTimer;
-function say(m){toast.textContent=m;toast.classList.add('on');clearTimeout(tTimer);tTimer=setTimeout(function(){toast.classList.remove('on');},2600);}
-var cyc='m',toggle=document.getElementById('cycle');
-if(toggle)toggle.addEventListener('click',function(e){
-var b=e.target.closest('button');if(!b)return;
-cyc=b.getAttribute('data-c');
-toggle.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b);});
-root.querySelectorAll('.amt[data-m]').forEach(function(a){
-a.innerHTML=a.getAttribute('data-'+cyc)+'<small> / '+(cyc==='m'?'month':'year')+'</small>';
-});
-});
-root.querySelectorAll('[data-plan]').forEach(function(btn){
-btn.addEventListener('click',function(){
-var plan=btn.getAttribute('data-plan'),price=btn.getAttribute('data-price');
-say('Selected '+plan+' — '+price+'. Opening Stripe Checkout…');
-});
-});
-var send=document.getElementById('cf-send');
-if(send)send.addEventListener('click',function(){
-var n=document.getElementById('cf-n').value.trim(),e=document.getElementById('cf-e').value.trim();
-var m=document.getElementById('cf-m').value.trim();
-if(!n||!e||!m){say('Please add your name, email, and a message.');return;}
-if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){say('That email address looks incomplete.');return;}
-document.getElementById('cf-n').value='';document.getElementById('cf-e').value='';document.getElementById('cf-m').value='';
-say('Message saved. We reply within one business day.');
-});
-var b='';
-addEventListener('keydown',function(e){
-if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;
-b=(b+e.key.toLowerCase()).slice(-7);
-if(b==='imalive')location.href='vault.html';
-});
-})();
-</script>
-
-<style>
-.appcard.dark .btn-s{color:#F4F3EF;border-color:rgba(255,255,255,.22)}
-</style>
-
-</body>
-</html>
+<span class="kicker">Legal</span><h1 style="margin-bottom:8px">Privacy policy</h1
