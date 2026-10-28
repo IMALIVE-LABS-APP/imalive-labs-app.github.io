@@ -18,372 +18,191 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  html,body{margin:0;padding:0;background:#fff}
-  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
-  #site{
-    --ink:#0A0C10; --ink2:#141922; --ink3:#1E2531;
-    --paper:#FFFFFF; --paper2:#F6F5F1;
-    --mut:#5C6270; --mut2:#8A8F9C; --line:#E3E0D8;
-    --green:#12A150; --greenL:#1FC96B; --violet:#6D5CF6; --violetL:#A99BFF;
-    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    background:var(--paper); color:var(--ink); font-size:15px; line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-  }
-  #site *{box-sizing:border-box}
-  #site h1,#site h2,#site h3,#site h4{margin:0;font-weight:600;letter-spacing:-.022em;line-height:1.15}
-  #site h1{font-size:38px} #site h2{font-size:26px} #site h3{font-size:17px}
-  #site p{margin:0}
-  a{color:inherit}
-  #site a{text-decoration:none}
-  .mono{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase}
-  .brand-txt{font-family:'Roboto Slab',Rockwell,Georgia,serif;font-weight:800;font-size:19px;letter-spacing:-.035em;line-height:1;display:inline-flex;align-items:flex-start}
-  .brand-txt .i{position:relative;padding-top:5px}
-  .brand-txt .i b{position:absolute;top:0;left:1.5px;width:4.5px;height:4.5px;border-radius:99px;background:var(--greenL)}
-  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
-  .sec{padding:52px 0} .sec-tight{padding:34px 0}
-  .nav{background:var(--paper);border-bottom:1px solid var(--line);position:relative;z-index:5}
-  .nav-in{max-width:720px;margin:0 auto;padding:13px 22px;display:flex;align-items:center;gap:14px}
-  .brand{display:flex;align-items:center;gap:9px;flex-shrink:0}
-  .nav-links{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap;justify-content:flex-end}
-  .nav-links a{padding:6px 10px;border-radius:7px;font-size:13.5px;color:var(--mut);font-weight:500;white-space:nowrap}
-  .nav-links a:hover{background:var(--paper2);color:var(--ink)}
-  .nav-links a.on{color:var(--ink);background:var(--paper2)}
-  .nav-cta{margin-left:8px;background:var(--ink);color:#fff;padding:8px 15px;border-radius:8px;font-size:13.5px;font-weight:500;white-space:nowrap;flex-shrink:0}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 19px;border-radius:9px;font-size:14px;font-weight:500;border:1px solid transparent;cursor:pointer;font-family:inherit;transition:opacity .15s}
-  .btn-p{background:var(--ink);color:#fff}
-  .btn-s{background:transparent;color:var(--ink);border-color:var(--line)}
-  .btn-g{background:var(--green);color:#fff}
-  .btn-sm{padding:8px 14px;font-size:13px}
-  .hero{padding:56px 0 46px;border-bottom:1px solid var(--line)}
-  .eyebrow{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--paper2);border-radius:99px;padding:5px 12px 5px 9px;color:var(--mut);margin-bottom:20px}
-  .dot{width:6px;height:6px;border-radius:99px;background:var(--greenL);box-shadow:0 0 0 3px rgba(31,201,107,.16)}
-  .hero h1{max-width:16ch} .hero h1 em{font-style:normal;color:var(--green)}
-  .lede{font-size:17px;color:var(--mut);max-width:56ch;margin-top:18px;line-height:1.62}
-  .cta-row{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
-  .pulse-box{margin-top:34px;border:1px solid var(--line);background:var(--paper2);border-radius:12px;padding:18px 20px;display:flex;align-items:center;gap:18px}
-  .pulse-txt{font-size:13px;color:var(--mut);line-height:1.5}
-  .pulse-txt b{color:var(--ink);font-weight:500;display:block;font-size:13.5px}
-  .ekg{stroke-dasharray:520;stroke-dashoffset:520;animation:draw 3.4s linear infinite}
-  @keyframes draw{0%{stroke-dashoffset:520}55%{stroke-dashoffset:0}100%{stroke-dashoffset:-520}}
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
-  .stat{padding:22px 18px;border-right:1px solid var(--line)} .stat:last-child{border-right:0}
-  .stat b{display:block;font-size:23px;font-weight:600;letter-spacing:-.03em}
-  .stat span{font-size:11.5px;color:var(--mut2);letter-spacing:.03em}
-  .grid{display:grid;gap:14px} .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
-  .card{border:1px solid var(--line);background:var(--paper);border-radius:12px;padding:20px}
-  .card h3{margin-bottom:7px} .card p{font-size:13.5px;color:var(--mut);line-height:1.6}
-  .num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mut2);display:block;margin-bottom:11px}
-  .appcard{border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;gap:18px;background:var(--paper)}
-  .appcard.dark{background:var(--ink);border-color:var(--ink);color:#F4F3EF}
-  .appcard.dark p{color:#A7ACB8}
-  .appcard.dark .tag{background:rgba(255,255,255,.09);color:#D6D3CC}
-  .appcard .mark{flex-shrink:0;border-radius:12px;display:block}
-  .appcard h3{font-size:18px;margin-bottom:5px} .appcard p{font-size:13.5px;color:var(--mut);line-height:1.6}
-  .tag{display:inline-block;font-size:11px;padding:3px 9px;border-radius:99px;background:var(--paper2);color:var(--mut);margin:0 5px 9px 0;font-weight:500}
-  .feat{list-style:none;padding:0;margin:12px 0 0;font-size:13px;color:var(--mut)}
-  .feat li{padding-left:17px;position:relative;margin-bottom:4px}
-  .feat li:before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:99px;background:var(--greenL)}
-  .step{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
-  .step:last-child{border-bottom:0}
-  .step .k{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--mut2);padding-top:3px;width:26px;flex-shrink:0}
-  .step h4{font-size:14.5px;margin-bottom:3px} .step p{font-size:13.5px;color:var(--mut)}
-  .toggle{display:inline-flex;background:var(--paper2);border:1px solid var(--line);border-radius:9px;padding:3px;gap:2px;margin-top:18px}
-  .toggle button{border:0;background:transparent;font-family:inherit;font-size:13px;padding:7px 15px;border-radius:7px;cursor:pointer;color:var(--mut);font-weight:500}
-  .toggle button.on{background:var(--paper);color:var(--ink)}
-  .price-card{border:1px solid var(--line);border-radius:13px;padding:20px;display:flex;flex-direction:column}
-  .price-card.hi{border-color:var(--ink);border-width:1.5px}
-  .price-card h3{font-size:15px} .price-card .sub{font-size:12.5px;color:var(--mut2);margin-top:3px}
-  .amt{font-size:31px;font-weight:600;letter-spacing:-.035em;margin:14px 0 2px}
-  .amt small{font-size:13px;font-weight:400;color:var(--mut2);letter-spacing:0}
-  .price-card .btn{margin-top:16px;justify-content:center;width:100%}
-  .price-card .feat{margin-top:15px;flex:1}
-  .prose{max-width:64ch}
-  .prose h3{margin:26px 0 8px;font-size:16px} .prose h3:first-child{margin-top:0}
-  .prose p{font-size:14px;color:var(--mut);margin-bottom:11px;line-height:1.68}
-  .prose ul{font-size:14px;color:var(--mut);padding-left:19px;margin:0 0 12px;line-height:1.68}
-  .prose li{margin-bottom:5px}
-  .meta{font-size:12.5px;color:var(--mut2);border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:24px}
-  details{border-bottom:1px solid var(--line);padding:15px 0}
-  details summary{cursor:pointer;font-weight:500;font-size:14.5px;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
-  details summary::-webkit-details-marker{display:none}
-  details summary:after{content:'+';color:var(--mut2);font-size:17px;line-height:1;flex-shrink:0}
-  details[open] summary:after{content:'\2212'}
-  details p{font-size:13.5px;color:var(--mut);margin-top:9px;max-width:62ch;line-height:1.65}
-  .field{margin-bottom:13px}
-  .field label{display:block;font-size:12.5px;font-weight:500;margin-bottom:5px}
-  .field input,.field textarea,.field select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:14px;background:var(--paper);color:var(--ink)}
-  .field input:focus,.field textarea:focus{outline:0;border-color:var(--ink)}
-  .field textarea{resize:vertical;min-height:96px}
-  .crow{display:flex;gap:13px;padding:14px 0;border-bottom:1px solid var(--line);align-items:flex-start}
-  .crow:last-child{border-bottom:0}
-  .crow .ic{width:30px;height:30px;border-radius:8px;background:var(--paper2);display:grid;place-items:center;flex-shrink:0}
-  .crow b{display:block;font-size:10.5px;color:var(--mut2);font-weight:500;letter-spacing:.03em;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
-  .crow a,.crow span{font-size:14px}
-  .band{background:var(--ink);color:#F4F3EF;padding:46px 0;text-align:center}
-  .band p{color:#A7ACB8;max-width:46ch;margin:13px auto 0;font-size:14.5px}
-  .band .btn-s{border-color:rgba(255,255,255,.22);color:#F4F3EF}
-  .foot{background:var(--ink2);color:#C9CCD4;padding:44px 0 26px}
-  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:26px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.1)}
-  .foot h4{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#7C828F;margin-bottom:11px;font-family:'JetBrains Mono',monospace;font-weight:400}
-  .foot a{display:block;font-size:13px;padding:3px 0;color:#C9CCD4}
-  .foot p{font-size:12.5px;color:#8A9099;line-height:1.6}
-  .foot-bot{padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#7C828F}
-  .foot-brand{display:flex;align-items:center;gap:9px;margin-bottom:12px;color:#fff}
-  .foot .brand-txt{font-size:22px;color:#fff}
-  #toast{position:absolute;left:50%;transform:translateX(-50%) translateY(-8px);background:var(--ink);color:#fff;padding:10px 17px;border-radius:9px;font-size:13px;opacity:0;transition:.22s;pointer-events:none;z-index:50;white-space:nowrap}
-  #toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
-  .page{display:none} .page.on{display:block}
-  .sec-hd{margin-bottom:26px}
-  .sec-hd p{color:var(--mut);font-size:14.5px;margin-top:9px;max-width:58ch}
-  .kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:9px}
-  .band .kicker{color:var(--greenL)}
-  .note{font-size:12.5px;color:var(--mut2);margin-top:16px;padding:11px 14px;background:var(--paper2);border-radius:9px;border:1px solid var(--line)}
-  .vdoot{text-align:center;padding:14px 0 18px}
-  .vdoot a{font-size:11px;color:#8A909F;letter-spacing:.35em;text-decoration:none}
-  @media(max-width:640px){
-    #site h1{font-size:29px} #site h2{font-size:22px}
-    .stats{grid-template-columns:1fr 1fr}
-    .stat:nth-child(2){border-right:0}
-    .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}
-    .g3,.g2{grid-template-columns:1fr}
-    .foot-grid{grid-template-columns:1fr 1fr}
-    .nav-links{display:none}
-    .appcard{flex-direction:column;gap:14px}
-  }
+html,body{margin:0;padding:0;background:#fff}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+#site{--ink:#0A0C10;--ink2:#141922;--paper:#FFFFFF;--paper2:#F6F5F1;--mut:#5C6270;--mut2:#8A8F9C;--line:#E3E0D8;--green:#12A150;--greenL:#1FC96B;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:var(--ink);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+#site *{box-sizing:border-box}
+#site h1,#site h2,#site h3,#site h4{margin:0;font-weight:600;letter-spacing:-.022em;line-height:1.15}
+#site h1{font-size:38px}#site h2{font-size:26px}#site h3{font-size:17px}
+#site p{margin:0}
+a{color:inherit}
+#site a{text-decoration:none}
+.mono{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase}
+.brand-txt{font-family:'Roboto Slab',Georgia,serif;font-weight:800;font-size:19px;letter-spacing:-.035em;line-height:1;display:inline-flex;align-items:flex-start}
+.brand-txt .i{position:relative;padding-top:5px}
+.brand-txt .i b{position:absolute;top:0;left:1.5px;width:4.5px;height:4.5px;border-radius:99px;background:var(--greenL)}
+.wrap{max-width:720px;margin:0 auto;padding:0 22px}
+.sec{padding:52px 0}.sec-tight{padding:34px 0}
+.nav{background:#fff;border-bottom:1px solid var(--line);position:relative;z-index:5}
+.nav-in{max-width:720px;margin:0 auto;padding:13px 22px;display:flex;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:9px;flex-shrink:0}
+.nav-links{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap;justify-content:flex-end}
+.nav-links a{padding:6px 10px;border-radius:7px;font-size:13.5px;color:var(--mut);font-weight:500;white-space:nowrap}
+.nav-links a.on{color:var(--ink);background:var(--paper2)}
+.nav-cta{margin-left:8px;background:var(--ink);color:#fff;padding:8px 15px;border-radius:8px;font-size:13.5px;font-weight:500;white-space:nowrap;flex-shrink:0}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 19px;border-radius:9px;font-size:14px;font-weight:500;border:1px solid transparent;cursor:pointer;font-family:inherit}
+.btn-p{background:var(--ink);color:#fff}
+.btn-s{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-g{background:var(--green);color:#fff}
+.btn-sm{padding:8px 14px;font-size:13px}
+.hero{padding:56px 0 46px;border-bottom:1px solid var(--line)}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--paper2);border-radius:99px;padding:5px 12px 5px 9px;color:var(--mut);margin-bottom:20px}
+.dot{width:6px;height:6px;border-radius:99px;background:var(--greenL);box-shadow:0 0 0 3px rgba(31,201,107,.16)}
+.hero h1{max-width:16ch}.hero h1 em{font-style:normal;color:var(--green)}
+.lede{font-size:17px;color:var(--mut);max-width:56ch;margin-top:18px;line-height:1.62}
+.cta-row{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.pulse-box{margin-top:34px;border:1px solid var(--line);background:var(--paper2);border-radius:12px;padding:18px 20px;display:flex;align-items:center;gap:18px}
+.pulse-txt{font-size:13px;color:var(--mut);line-height:1.5}
+.pulse-txt b{color:var(--ink);font-weight:500;display:block;font-size:13.5px}
+.ekg{stroke-dasharray:520;stroke-dashoffset:520;animation:draw 3.4s linear infinite}
+@keyframes draw{0%{stroke-dashoffset:520}55%{stroke-dashoffset:0}100%{stroke-dashoffset:-520}}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.stat{padding:22px 18px;border-right:1px solid var(--line)}.stat:last-child{border-right:0}
+.stat b{display:block;font-size:23px;font-weight:600;letter-spacing:-.03em}
+.stat span{font-size:11.5px;color:var(--mut2);letter-spacing:.03em}
+.grid{display:grid;gap:14px}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.card{border:1px solid var(--line);background:#fff;border-radius:12px;padding:20px}
+.card h3{margin-bottom:7px}.card p{font-size:13.5px;color:var(--mut);line-height:1.6}
+.num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--mut2);display:block;margin-bottom:11px}
+.appcard{border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;gap:18px;background:#fff}
+.appcard.dark{background:var(--ink);border-color:var(--ink);color:#F4F3EF}
+.appcard.dark p{color:#A7ACB8}
+.appcard.dark .tag{background:rgba(255,255,255,.09);color:#D6D3CC}
+.appcard .mark{flex-shrink:0;border-radius:12px;display:block}
+.appcard h3{font-size:18px;margin-bottom:5px}.appcard p{font-size:13.5px;color:var(--mut);line-height:1.6}
+.tag{display:inline-block;font-size:11px;padding:3px 9px;border-radius:99px;background:var(--paper2);color:var(--mut);margin:0 5px 9px 0;font-weight:500}
+.feat{list-style:none;padding:0;margin:12px 0 0;font-size:13px;color:var(--mut)}
+.feat li{padding-left:17px;position:relative;margin-bottom:4px}
+.feat li:before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:99px;background:var(--greenL)}
+.step{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:0}
+.step .k{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--mut2);padding-top:3px;width:26px;flex-shrink:0}
+.step h4{font-size:14.5px;margin-bottom:3px}.step p{font-size:13.5px;color:var(--mut)}
+.toggle{display:inline-flex;background:var(--paper2);border:1px solid var(--line);border-radius:9px;padding:3px;gap:2px;margin-top:18px}
+.toggle button{border:0;background:transparent;font-family:inherit;font-size:13px;padding:7px 15px;border-radius:7px;cursor:pointer;color:var(--mut);font-weight:500}
+.toggle button.on{background:#fff;color:var(--ink)}
+.price-card{border:1px solid var(--line);border-radius:13px;padding:20px;display:flex;flex-direction:column}
+.price-card.hi{border-color:var(--ink);border-width:1.5px}
+.price-card h3{font-size:15px}.price-card .sub{font-size:12.5px;color:var(--mut2);margin-top:3px}
+.amt{font-size:31px;font-weight:600;letter-spacing:-.035em;margin:14px 0 2px}
+.amt small{font-size:13px;font-weight:400;color:var(--mut2);letter-spacing:0}
+.price-card .btn{margin-top:16px;justify-content:center;width:100%}
+.price-card .feat{margin-top:15px;flex:1}
+.prose{max-width:64ch}
+.prose h3{margin:26px 0 8px;font-size:16px}.prose h3:first-child{margin-top:0}
+.prose p{font-size:14px;color:var(--mut);margin-bottom:11px;line-height:1.68}
+.prose ul{font-size:14px;color:var(--mut);padding-left:19px;margin:0 0 12px;line-height:1.68}
+.prose li{margin-bottom:5px}
+.meta{font-size:12.5px;color:var(--mut2);border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:24px}
+details{border-bottom:1px solid var(--line);padding:15px 0}
+details summary{cursor:pointer;font-weight:500;font-size:14.5px;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+details summary::-webkit-details-marker{display:none}
+details summary:after{content:'+';color:var(--mut2);font-size:17px;line-height:1;flex-shrink:0}
+details[open] summary:after{content:'\2212'}
+details p{font-size:13.5px;color:var(--mut);margin-top:9px;max-width:62ch;line-height:1.65}
+.field{margin-bottom:13px}
+.field label{display:block;font-size:12.5px;font-weight:500;margin-bottom:5px}
+.field input,.field textarea,.field select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:14px;background:#fff;color:var(--ink)}
+.field input:focus,.field textarea:focus{outline:0;border-color:var(--ink)}
+.field textarea{resize:vertical;min-height:96px}
+.crow{display:flex;gap:13px;padding:14px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.crow:last-child{border-bottom:0}
+.crow .ic{width:30px;height:30px;border-radius:8px;background:var(--paper2);display:grid;place-items:center;flex-shrink:0}
+.crow b{display:block;font-size:10.5px;color:var(--mut2);font-weight:500;letter-spacing:.03em;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+.crow a,.crow span{font-size:14px}
+.band{background:var(--ink);color:#F4F3EF;padding:46px 0;text-align:center}
+.band p{color:#A7ACB8;max-width:46ch;margin:13px auto 0;font-size:14.5px}
+.band .btn-s{border-color:rgba(255,255,255,.22);color:#F4F3EF}
+.foot{background:var(--ink2);color:#C9CCD4;padding:44px 0 26px}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:26px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot h4{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#7C828F;margin-bottom:11px;font-family:'JetBrains Mono',monospace;font-weight:400}
+.foot a{display:block;font-size:13px;padding:3px 0;color:#C9CCD4}
+.foot p{font-size:12.5px;color:#8A9099;line-height:1.6}
+.foot-bot{padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#7C828F}
+.foot-brand{display:flex;align-items:center;gap:9px;margin-bottom:12px;color:#fff}
+.foot .brand-txt{font-size:22px;color:#fff}
+#toast{position:absolute;left:50%;transform:translateX(-50%) translateY(-8px);background:var(--ink);color:#fff;padding:10px 17px;border-radius:9px;font-size:13px;opacity:0;transition:.22s;pointer-events:none;z-index:50;white-space:nowrap}
+#toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.page{display:none}.page.on{display:block}
+.sec-hd{margin-bottom:26px}
+.sec-hd p{color:var(--mut);font-size:14.5px;margin-top:9px;max-width:58ch}
+.kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:9px}
+.band .kicker{color:var(--greenL)}
+.note{font-size:12.5px;color:var(--mut2);margin-top:16px;padding:11px 14px;background:var(--paper2);border-radius:9px;border:1px solid var(--line)}
+.vdoot{text-align:center;padding:14px 0 18px}
+.vdoot a{font-size:11px;color:#8A909F;letter-spacing:.35em}
+@media(max-width:640px){
+#site h1{font-size:29px}#site h2{font-size:22px}
+.stats{grid-template-columns:1fr 1fr}
+.stat:nth-child(2){border-right:0}
+.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}
+.g3,.g2{grid-template-columns:1fr}
+.foot-grid{grid-template-columns:1fr 1fr}
+.nav-links{display:none}
+.appcard{flex-direction:column;gap:14px}
+}
 </style>
 </head>
 <body>
 
 <div id="site">
-  <nav class="nav">
-    <div class="nav-in">
-      <a class="brand" href="#/home">
-        <svg width="26" height="26" viewBox="0 0 40 40" role="img"><title>Imalive</title>
-          <rect width="40" height="40" rx="9" fill="#FFFFFF" stroke="#E3E0D8"/>
-          <path d="M7 21h5.5l3-8.5 4.5 16 3.5-9.5H33" fill="none" stroke="#12A150" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="brand-txt"><span class="i"><b></b>I</span>malive</span>
-      </a>
-      <div class="nav-links">
-        <a href="#/products" data-r="products">Apps</a>
-        <a href="#/pricing" data-r="pricing">Pricing</a>
-        <a href="#/about" data-r="about">Studio</a>
-        <a href="#/faq" data-r="faq">FAQ</a>
-        <a href="#/contact" data-r="contact">Contact</a>
-      </div>
-      <a class="nav-cta" href="#/pricing">Get started</a>
-    </div>
-  </nav>
+<nav class="nav"><div class="nav-in">
+<a class="brand" href="#/home"><svg width="26" height="26" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="#fff" stroke="#E3E0D8"/><path d="M7 21h5.5l3-8.5 4.5 16 3.5-9.5H33" fill="none" stroke="#12A150" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="brand-txt"><span class="i"><b></b>I</span>malive</span></a>
+<div class="nav-links"><a href="#/products" data-r="products">Apps</a><a href="#/pricing" data-r="pricing">Pricing</a><a href="#/about" data-r="about">Studio</a><a href="#/faq" data-r="faq">FAQ</a><a href="#/contact" data-r="contact">Contact</a></div>
+<a class="nav-cta" href="#/pricing">Get started</a>
+</div></nav>
 
-  <div class="page on" id="p-home">
-    <header class="hero">
-      <div class="wrap">
-        <div class="eyebrow mono"><span class="dot"></span>App studio &middot; Albuquerque, NM</div>
-        <h1>We build and test apps until they are <em>actually launchable</em>.</h1>
-        <p class="lede">Imalive is a small product studio. We design, build, and stress-test our own apps before they ship, and we take on a handful of client builds each quarter. Two of ours are live right now: Imalive and Janus.</p>
-        <div class="cta-row">
-          <a class="btn btn-p" href="#/products">See our apps</a>
-          <a class="btn btn-s" href="#/pricing">View pricing</a>
-        </div>
-        <div class="pulse-box">
-          <svg width="118" height="42" viewBox="0 0 118 42" aria-hidden="true">
-            <path d="M2 21h17l5-13 7 26 6-18 4 5h17l5-9 6 18 5-9h16" fill="none" stroke="#1FC96B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="ekg"/>
-          </svg>
-          <div class="pulse-txt"><b>Ship-readiness is the product.</b>Every build runs through our 340-check release gate before it ever reaches a store listing.</div>
-        </div>
-      </div>
-    </header>
+<div class="page on" id="p-home">
+<header class="hero"><div class="wrap">
+<div class="eyebrow mono"><span class="dot"></span>App studio &middot; Albuquerque, NM</div>
+<h1>We build and test apps until they are <em>actually launchable</em>.</h1>
+<p class="lede">Imalive is a small product studio. We design, build, and stress-test our own apps before they ship, and we take on a handful of client builds each quarter. Two of ours are live right now: Imalive and Janus.</p>
+<div class="cta-row"><a class="btn btn-p" href="#/products">See our apps</a><a class="btn btn-s" href="#/pricing">View pricing</a></div>
+<div class="pulse-box"><svg width="118" height="42" viewBox="0 0 118 42"><path d="M2 21h17l5-13 7 26 6-18 4 5h17l5-9 6 18 5-9h16" fill="none" stroke="#1FC96B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="ekg"/></svg>
+<div class="pulse-txt"><b>Ship-readiness is the product.</b>Every build runs through our 340-check release gate before it ever reaches a store listing.</div></div>
+</div></header>
 
-    <div class="stats">
-      <div class="stat"><b>40+</b><span>APPS SHIPPED</span></div>
-      <div class="stat"><b>1.4M</b><span>TOTAL INSTALLS</span></div>
-      <div class="stat"><b>99.97%</b><span>CRASH-FREE SESSIONS</span></div>
-      <div class="stat"><b>4.8</b><span>AVG STORE RATING</span></div>
-    </div>
+<div class="stats">
+<div class="stat"><b>40+</b><span>APPS SHIPPED</span></div>
+<div class="stat"><b>1.4M</b><span>TOTAL INSTALLS</span></div>
+<div class="stat"><b>99.97%</b><span>CRASH-FREE SESSIONS</span></div>
+<div class="stat"><b>4.8</b><span>AVG STORE RATING</span></div>
+</div>
 
-    <section class="sec">
-      <div class="wrap">
-        <div class="sec-hd"><span class="kicker">What we do</span><h2>Three things, done properly</h2>
-        <p>Most studios hand you a build and disappear. We stay through the part that actually determines whether an app survives contact with real users.</p></div>
-        <div class="grid g3">
-          <div class="card"><span class="num">01</span><h3>Build</h3><p>Native and cross-platform apps from spec to store submission. Fixed scope, weekly builds, no surprise invoices.</p></div>
-          <div class="card"><span class="num">02</span><h3>Test</h3><p>Device-farm regression, real-device QA, performance profiling, and our 340-check launch gate before release.</p></div>
-          <div class="card"><span class="num">03</span><h3>Ship</h3><p>Store listings, review compliance, analytics wiring, and post-launch monitoring for the first 90 days.</p></div>
-        </div>
-      </div>
-    </section>
+<section class="sec"><div class="wrap">
+<div class="sec-hd"><span class="kicker">What we do</span><h2>Three things, done properly</h2><p>Most studios hand you a build and disappear. We stay through the part that actually determines whether an app survives contact with real users.</p></div>
+<div class="grid g3">
+<div class="card"><span class="num">01</span><h3>Build</h3><p>Native and cross-platform apps from spec to store submission. Fixed scope, weekly builds, no surprise invoices.</p></div>
+<div class="card"><span class="num">02</span><h3>Test</h3><p>Device-farm regression, real-device QA, performance profiling, and our 340-check launch gate before release.</p></div>
+<div class="card"><span class="num">03</span><h3>Ship</h3><p>Store listings, review compliance, analytics wiring, and post-launch monitoring for the first 90 days.</p></div>
+</div></div></section>
 
-    <section class="sec-tight" style="background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-      <div class="wrap">
-        <div class="sec-hd"><span class="kicker">Our own apps</span><h2>Built in-house, tested hardest</h2></div>
-        <div class="grid g2">
-          <div class="appcard">
-            <svg class="mark" width="44" height="44" viewBox="0 0 40 40" role="img"><title>Imalive</title>
-              <rect width="40" height="40" rx="9" fill="#FFFFFF" stroke="#E3E0D8"/>
-              <path d="M7 21h5.5l3-8.5 4.5 16 3.5-9.5H33" fill="none" stroke="#12A150" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div><h3>Imalive</h3><p>One-tap daily check-in. Tells the people who care that you got home safe.</p>
-              <div style="margin-top:11px"><span class="tag">iOS</span><span class="tag">Android</span><span class="tag">Web</span></div>
-              <a class="btn btn-s btn-sm" href="#/products">Learn more</a></div>
-          </div>
-          <div class="appcard dark">
-            <svg class="mark" width="44" height="44" viewBox="0 0 40 40" role="img"><title>Janus</title>
-              <rect width="40" height="40" rx="9" fill="#1E2531"/>
-              <path d="M20 32V8A12 12 0 0 0 8 20v12z" fill="#6D5CF6"/>
-              <path d="M20 32V8a12 12 0 0 1 12 12v12z" fill="#D9D5FF"/>
-              <circle cx="14.6" cy="21.5" r="1.7" fill="#FCFBF8"/><circle cx="25.4" cy="21.5" r="1.7" fill="#1E2531"/>
-            </svg>
-            <div><h3>Janus</h3><p>A decision journal that looks both ways. Log the call, then see how it actually played out.</p>
-              <div style="margin-top:11px"><span class="tag">iOS</span><span class="tag">Android</span><span class="tag">Beta</span></div>
-              <a class="btn btn-s btn-sm" href="#/products">Learn more</a></div>
-          </div>
-        </div>
-      </div>
-    </section>
+<section class="sec-tight" style="background:#F6F5F1;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"><div class="wrap">
+<div class="sec-hd"><span class="kicker">Our own apps</span><h2>Built in-house, tested hardest</h2></div>
+<div class="grid g2">
+<div class="appcard"><svg class="mark" width="44" height="44" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="#fff" stroke="#E3E0D8"/><path d="M7 21h5.5l3-8.5 4.5 16 3.5-9.5H33" fill="none" stroke="#12A150" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<div><h3>Imalive</h3><p>One-tap daily check-in. Tells the people who care that you got home safe.</p><div style="margin-top:11px"><span class="tag">iOS</span><span class="tag">Android</span><span class="tag">Web</span></div><a class="btn btn-s btn-sm" href="#/products">Learn more</a></div></div>
+<div class="appcard dark"><svg class="mark" width="44" height="44" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="#1E2531"/><path d="M20 32V8A12 12 0 0 0 8 20v12z" fill="#6D5CF6"/><path d="M20 32V8a12 12 0 0 1 12 12v12z" fill="#D9D5FF"/><circle cx="14.6" cy="21.5" r="1.7" fill="#FCFBF8"/><circle cx="25.4" cy="21.5" r="1.7" fill="#1E2531"/></svg>
+<div><h3>Janus</h3><p>A decision journal that looks both ways. Log the call, then see how it actually played out.</p><div style="margin-top:11px"><span class="tag">iOS</span><span class="tag">Android</span><span class="tag">Beta</span></div><a class="btn btn-s btn-sm" href="#/products">Learn more</a></div></div>
+</div></div></section>
 
-    <section class="sec">
-      <div class="wrap">
-        <div class="sec-hd"><span class="kicker">How we work</span><h2>From idea to store listing</h2></div>
-        <div>
-          <div class="step"><span class="k">01</span><div><h4>Scoping call</h4><p>45 minutes. We map the core loop, cut what does not matter, and quote a fixed price.</p></div></div>
-          <div class="step"><span class="k">02</span><div><h4>Build in weekly slices</h4><p>You get a running build every Friday. Nothing is hidden until the end.</p></div></div>
-          <div class="step"><span class="k">03</span><div><h4>Release gate</h4><p>Regression suite, real-device pass, performance budget, and accessibility audit. Fail means we do not ship.</p></div></div>
-          <div class="step"><span class="k">04</span><div><h4>Launch and watch</h4><p>Submission handled, crash monitoring live, and 90 days of on-call included with every build.</p></div></div>
-        </div>
-      </div>
-    </section>
+<section class="sec"><div class="wrap">
+<div class="sec-hd"><span class="kicker">How we work</span><h2>From idea to store listing</h2></div>
+<div>
+<div class="step"><span class="k">01</span><div><h4>Scoping call</h4><p>45 minutes. We map the core loop, cut what does not matter, and quote a fixed price.</p></div></div>
+<div class="step"><span class="k">02</span><div><h4>Build in weekly slices</h4><p>You get a running build every Friday. Nothing is hidden until the end.</p></div></div>
+<div class="step"><span class="k">03</span><div><h4>Release gate</h4><p>Regression suite, real-device pass, performance budget, and accessibility audit. Fail means we do not ship.</p></div></div>
+<div class="step"><span class="k">04</span><div><h4>Launch and watch</h4><p>Submission handled, crash monitoring live, and 90 days of on-call included with every build.</p></div></div>
+</div></div></section>
 
-    <div class="band">
-      <div class="wrap">
-        <span class="kicker">Next opening</span><h2>Two build slots left this quarter</h2>
-        <p>Tell us what you are making. If we are not the right studio for it, we will say so on the first call.</p>
-        <div class="cta-row" style="justify-content:center;margin-top:22px">
-          <a class="btn btn-g" href="#/contact">Book a scoping call</a>
-          <a class="btn btn-s" href="#/pricing">See pricing</a>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="band"><div class="wrap">
+<span class="kicker">Next opening</span><h2>Two build slots left this quarter</h2>
+<p>Tell us what you are making. If we are not the right studio for it, we will say so on the first call.</p>
+<div class="cta-row" style="justify-content:center;margin-top:22px"><a class="btn btn-g" href="#/contact">Book a scoping call</a><a class="btn btn-s" href="#/pricing">See pricing</a></div>
+</div></div>
+</div>
 
-  <div class="page" id="p-products">
-    <section class="sec">
-      <div class="wrap">
-        <div class="sec-hd"><span class="kicker">Products</span><h1>Apps we make, and work we take on</h1>
-        <p>Two subscription apps and a small number of client engagements per quarter.</p></div>
-
-        <div class="appcard" style="margin-bottom:16px">
-          <svg class="mark" width="52" height="52" viewBox="0 0 40 40" role="img"><title>Imalive</title>
-            <rect width="40" height="40" rx="9" fill="#FFFFFF" stroke="#E3E0D8"/>
-            <path d="M7 21h5.5l3-8.5 4.5 16 3.5-9.5H33" fill="none" stroke="#12A150" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <div><h3>Imalive</h3>
-            <p>A one-tap daily check-in app. Tap once a day and your chosen circle knows you are fine. Miss a day and Imalive quietly nudges them. Built for people living alone, solo travellers, shift workers, and anyone with a parent who worries.</p>
-            <ul class="feat"><li>One-tap check-in with a 3-second undo window</li><li>Up to 5 trusted contacts on the Family plan</li><li>Automatic escalation if you miss two days running</li><li>Streaks, gentle reminders, and a private history timeline</li><li>Offline-first: works with no signal, syncs later</li></ul>
-            <div style="margin-top:14px;display:flex;gap:9px;flex-wrap:wrap"><a class="btn btn-p btn-sm" href="#/pricing">Plans from $0</a><a class="btn btn-s btn-sm" href="#/faq">Read the FAQ</a></div>
-          </div>
-        </div>
-
-        <div class="appcard" style="margin-bottom:16px">
-          <svg class="mark" width="52" height="52" viewBox="0 0 40 40" role="img"><title>Janus</title>
-            <rect width="40" height="40" rx="9" fill="#0A0C10"/>
-            <path d="M20 32V8A12 12 0 0 0 8 20v12z" fill="#6D5CF6"/>
-            <path d="M20 32V8a12 12 0 0 1 12 12v12z" fill="#D9D5FF"/>
-            <circle cx="14.6" cy="21.5" r="1.7" fill="#FCFBF8"/><circle cx="25.4" cy="21.5" r="1.7" fill="#0A0C10"/>
-          </svg>
-          <div><h3>Janus</h3>
-            <p>Named for the god who looks both ways. Janus is a decision journal: write the decision, the options you weighed, and what you expect to happen. Later, Janus asks how it went and scores your own forecasting. It is a mirror for your judgement, not another to-do list.</p>
-            <ul class="feat"><li>Structured decision entries with options and confidence</li><li>Scheduled follow-ups that ask how it actually went</li><li>Calibration score showing how well you predict outcomes</li><li>Patterns by category: money, work, people, health</li><li>Full export as Markdown and CSV, no lock-in</li></ul>
-            <div style="margin-top:14px;display:flex;gap:9px;flex-wrap:wrap"><a class="btn btn-p btn-sm" href="#/pricing">Plans from $0</a><a class="btn btn-s btn-sm" href="#/contact">Join the beta</a></div>
-          </div>
-        </div>
-
-        <div class="card">
-          <span class="kicker">Client services</span><h3>Build and QA engagements</h3>
-          <p>We take on a small number of client projects per quarter, usually one at a time. Two ways to work with us.</p>
-          <div style="margin-top:14px">
-            <div class="step" style="border-top:1px solid var(--line)"><span class="k">A</span><div><h4>Launch audit &mdash; $2,400 one-time</h4><p>You already have an app. We run it through the 340-check release gate and hand you a prioritised defect report, performance profile, and store-compliance review. Two weeks.</p></div></div>
-            <div class="step"><span class="k">B</span><div><h4>Full build &mdash; from $14,000</h4><p>Spec to store listing. Fixed scope, weekly builds, QA included, 90 days post-launch support. Typical timeline is 8 to 14 weeks.</p></div></div>
-          </div>
-          <a class="btn btn-s btn-sm" style="margin-top:16px" href="#/contact">Request a quote</a>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <div class="page" id="p-pricing">
-    <section class="sec">
-      <div class="wrap">
-        <div class="sec-hd"><span class="kicker">Pricing</span><h1>Simple plans, in US dollars</h1>
-        <p>All prices in USD, billed through Stripe. Cancel any time from inside the app. Every paid plan includes a 14-day money-back guarantee.</p></div>
-
-        <div class="toggle" id="cycle"><button class="on" data-c="m">Monthly</button><button data-c="y">Annual &middot; save 2 months</button></div>
-
-        <h3 style="margin:30px 0 13px;font-size:15px">Imalive</h3>
-        <div class="grid g3">
-          <div class="price-card"><h3>Free</h3><div class="sub">For one person, one contact</div><div class="amt">$0<small> / month</small></div>
-            <div class="feat"><ul class="feat"><li>Daily check-in</li><li>1 trusted contact</li><li>7-day history</li><li>Email reminders</li></ul></div>
-            <button class="btn btn-s" data-plan="Imalive Free" data-price="$0">Choose plan</button></div>
-          <div class="price-card hi"><h3>Plus</h3><div class="sub">For solo living and travel</div><div class="amt" data-m="$4.99" data-y="$49.90">$4.99<small> / month</small></div>
-            <div class="feat"><ul class="feat"><li>Everything in Free</li><li>3 trusted contacts</li><li>Missed-day escalation</li><li>Unlimited history</li><li>Home-screen widget</li></ul></div>
-            <button class="btn btn-p" data-plan="Imalive Plus" data-price="$4.99/mo">Choose plan</button></div>
-          <div class="price-card"><h3>Family</h3><div class="sub">For parents and households</div><div class="amt" data-m="$9.99" data-y="$99.90">$9.99<small> / month</small></div>
-            <div class="feat"><ul class="feat"><li>Everything in Plus</li><li>Up to 5 contacts</li><li>Shared household view</li><li>Two-way check-ins</li><li>Priority support</li></ul></div>
-            <button class="btn btn-s" data-plan="Imalive Family" data-price="$9.99/mo">Choose plan</button></div>
-        </div>
-
-        <h3 style="margin:34px 0 13px;font-size:15px">Janus</h3>
-        <div class="grid g2">
-          <div class="price-card"><h3>Free</h3><div class="sub">For trying the method</div><div class="amt">$0<small> / month</small></div>
-            <div class="feat"><ul class="feat"><li>Up to 10 active decisions</li><li>Basic follow-up reminders</li><li>Markdown export</li></ul></div>
-            <button class="btn btn-s" data-plan="Janus Free" data-price="$0">Choose plan</button></div>
-          <div class="price-card hi"><h3>Pro</h3><div class="sub">For people who decide a lot</div><div class="amt" data-m="$6.99" data-y="$69.90">$6.99<small> / month</small></div>
-            <div class="feat"><ul class="feat"><li>Unlimited decisions</li><li>Calibration scoring</li><li>Category patterns</li><li>CSV and Markdown export</li><li>Priority support</li></ul></div>
-            <button class="btn btn-p" data-plan="Janus Pro" data-price="$6.99/mo">Choose plan</button></div>
-        </div>
-
-        <h3 style="margin:34px 0 13px;font-size:15px">Client services</h3>
-        <div class="grid g2">
-          <div class="price-card"><h3>Launch audit</h3><div class="sub">One-time, two weeks</div><div class="amt">$2,400<small> one-time</small></div>
-            <div class="feat"><ul class="feat"><li>340-check release gate</li><li>Performance profile</li><li>Store-compliance review</li><li>Prioritised defect report</li></ul></div>
-            <button class="btn btn-s" data-plan="Launch audit" data-price="$2,400 one-time">Request audit</button></div>
-          <div class="price-card"><h3>Full build</h3><div class="sub">From 8 to 14 weeks</div><div class="amt">$14,000<small> from, fixed scope</small></div>
-            <div class="feat"><ul class="feat"><li>Spec to store listing</li><li>Weekly builds</li><li>QA and launch gate included</li><li>90 days post-launch support</li></ul></div>
-            <button class="btn btn-s" data-plan="Full build" data-price="from $14,000">Request quote</button></div>
-        </div>
-
-        <div class="note"><b style="color:var(--ink);font-weight:500">How billing works.</b> Subscription plans renew automatically each month or year until cancelled. Payments are processed securely by Stripe. We accept Visa, Mastercard, American Express, and Apple Pay. Prices exclude applicable New Mexico gross receipts and sales tax, which is calculated at checkout based on your billing address. See our <a href="#/refunds" style="color:var(--green);text-decoration:underline">refund policy</a> for cancellation terms.</div>
-      </div>
-    </section>
-  </div>
-
-  <div class="page" id="p-about">
-    <section class="sec"><div class="wrap prose">
-      <span class="kicker">The studio</span>
-      <h1 style="margin-bottom:18px">A small studio with an unusual rule</h1>
-      <p>Imalive started in 2021 as two people who were tired of shipping apps that broke on real phones. We adopted one rule early and never dropped it: nothing goes to a store listing until it passes the release gate. No exceptions, no "we will fix it in the first patch".</p>
-      <p>That rule cost us clients at first. It also gave us a 99.97% crash-free rate and a 4.8 average store rating across everything we have shipped, which turns out to be a better sales pitch than speed.</p>
-      <h3>What we make</h3>
-      <p>We build our own products first, because it keeps us honest. Imalive is our check-in app, born from a co-founder living alone during a bad winter. Janus is our decision journal, born from a stack of notebooks full of calls that were never reviewed. Both are live, both are maintained by the same people who built them.</p>
-      <h3>How we take on client work</h3>
-      <p>We run one client engagement at a time. That means you get the whole studio, not a fraction of an agency. We take a scoping call, quote a fixed price, and if the fit is wrong we say so before you spend anything.</p>
-      <h3>Values</h3>
-      <ul>
-        <li><b style="color:var(--ink);font-weight:500">Testable or it does not count.</b> Every claim about quality has a test behind it.</li>
-        <li><b style="color:var(--ink);font-weight:500">No dark patterns.</b> Cancel is as easy as subscribe, and data exports are real files.</li>
-        <li><b style="color:var(--ink);font-weight:500">Small surface area.</b> Fewer features, finished properly, beats a long feature list.</li>
-        <li><b style="color:var(--ink);font-weight:500">Say the hard thing early.</b> Bad news on day three is cheap. On day sixty it is not.</li>
-      </ul>
-      <h3>Company details</h3>
-      <p>Imalive Labs LLC, trading as imaliveapp.com, a New Mexico limited liability company. Registered office and contact details are listed on our <a href="#/contact" style="color:var(--green);text-decoration:underline">contact page</a>. The business operates the imaliveapp.com website and the Imalive and Janus mobile applications.</p>
-    </div></section>
-  </div>
-
-  <div class="page" id="p-contact">
-    <section class="sec"><div class="wrap">
-      <div class="sec-hd"><span class="kicker">Contact</span><h1>Talk to a human</h1>
-      <p>We answer every message within one business day. Billing questions get answered the same day.</p></div>
-      <div class="grid g2">
-        <div>
-          <div class="crow"><div class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#12A150" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m3 7 9 6 9-6"/></svg></div><div><b>General</b><a href="mailto:hello@imaliveapp.com">hello@imaliveapp.com</a></div></div>
-          <div class="crow"><div class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#12A150" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/></svg></div><div><b>Billing &amp; refunds</b><a href="mailto:billing@imaliveapp.com">billing@imaliveapp.com</a></div></div>
-          <div class="crow"><div class="ic"><svg width="15" height="15" viewBox="0 0 24 24" fill
+<div class="page" id="p-products"><section class="sec"><div class="wrap">
+<div class="sec-hd"><span class="kicker">Products</span><h1>Apps we make, and work we take on</h1><p>Two subscription apps and a small number of client engagements per quarter.</p></div>
+<div class="appcard" style="margin-bottom:16px"><svg class="mark" width="52" height="52" viewBox="0 0 40 40"><rect width="40" height="40" rx="9" fill="#fff" stroke="#E3E0D8"/><path d="M7 21h5.5l3-8.5 4.5 16 3.5-9.5H33" fill="none" stroke="#12A150" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<div><h3>
